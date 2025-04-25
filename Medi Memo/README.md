@@ -20,3 +20,22 @@ This Python-based desktop app helps users manage and track their medicine intake
 1. Make sure you have `plyer` installed:
    ```bash
    pip install plyer
+
+## 📌 1. Adding a Medicine
+
+![Adding a Medicine](screenshot1.png)  
+User enters the medicine name and desired reminder time.
+
+---
+
+## ⏰ 2. Starting the Reminder
+
+![Starting the Reminder](screenshot2.png)  
+The system confirms that the reminder is successfully set.
+
+---
+
+## 🔔 3. Desktop Notification
+
+![Desktop Notification](screenshot3.png)  
+At the specified time, a Windows notification pops up reminding the user to take the medicine.
