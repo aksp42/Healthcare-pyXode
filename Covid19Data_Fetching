@@ -1,0 +1,41 @@
+import requests
+
+# URLs for global and India-specific COVID-19 stats
+global_url = "https://disease.sh/v3/covid-19/all"
+country_url = "https://disease.sh/v3/covid-19/countries/India"
+countries_url = "https://disease.sh/v3/covid-19/countries"
+
+# Get global stats
+global_response = requests.get(global_url)
+country_response = requests.get(country_url)
+countries_response = requests.get(countries_url)
+
+if global_response.status_code == 200 and country_response.status_code == 200:
+    global_data = global_response.json()
+    india_data = country_response.json()
+    countries_data = countries_response.json()
+
+    print("🌍 Global COVID-19 Stats:")
+    print("New Cases:", global_data['todayCases'])
+    print("Total Cases:", global_data['cases'])
+    print("New Deaths:", global_data['todayDeaths'])
+    print("Total Deaths:", global_data['deaths'])
+    print("New Recovered:", global_data['todayRecovered'])
+    print("Total Recovered:", global_data['recovered'])
+    print("-" * 40)
+
+    print("🇮🇳 COVID-19 Stats for India:")
+    print("New Cases:", india_data['todayCases'])
+    print("Total Cases:", india_data['cases'])
+    print("New Deaths:", india_data['todayDeaths'])
+    print("Total Deaths:", india_data['deaths'])
+    print("New Recovered:", india_data['todayRecovered'])
+    print("Total Recovered:", india_data['recovered'])
+    print("-" * 40)
+
+    top_countries = sorted(countries_data, key=lambda x: x['cases'], reverse=True)[:3]
+    print("Top 3 Countries by Total Confirmed Cases:")
+    for i, country in enumerate(top_countries, start=1):
+        print(f"{i}. {country['country']}: {country['cases']} cases")
+else:
+    print("Failed to fetch data from API. Please try again later.")
