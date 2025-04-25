@@ -1,0 +1,14 @@
+# 🦠 COVID-19 Data Fetching Script
+
+This Python script fetches real-time COVID-19 statistics from the **[disease.sh](https://disease.sh)** public API. It displays global data, India's data, and the top 3 countries with the highest confirmed cases.
+
+---
+
+## 📦 Requirements
+
+- Python 3.6+
+- `requests` library
+
+Install it (if not already):
+```bash
+pip install requests
